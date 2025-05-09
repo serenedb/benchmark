@@ -125,13 +125,13 @@ endif()
 configure_file("${PROJECT_SOURCE_DIR}/cmake/benchmark.pc.in" "${pkg_config}" @ONLY)
 configure_file("${PROJECT_SOURCE_DIR}/cmake/benchmark_main.pc.in" "${pkg_config_main}" @ONLY)
 
-export (
-  TARGETS ${targets_to_export}
-  NAMESPACE "${namespace}"
-  FILE ${generated_dir}/${targets_export_name}.cmake
-)
-
 if (BENCHMARK_ENABLE_INSTALL)
+  export (
+    TARGETS ${targets_to_export}
+    NAMESPACE "${namespace}"
+    FILE ${generated_dir}/${targets_export_name}.cmake
+  )
+
   # Install target (will install the library to specified CMAKE_INSTALL_PREFIX variable)
   install(
     TARGETS ${targets_to_export}
